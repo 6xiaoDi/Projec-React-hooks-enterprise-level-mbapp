@@ -1,10 +1,11 @@
 import React from 'react';
-import State from './hooks/state';
+import Effect from "./hooks/effect";
+
 
 function App() {
   return (
     <div className="App">
-      <State/>
+      <Effect/>
     </div>
   );
 }
