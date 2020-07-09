@@ -9,10 +9,15 @@ function Todos(){
     const [todos,setTodos] = useState([]);
 
     function addTodo(val){
-        console.log(val);
+        console.log();
+        setTodos([...todos,{
+            id: Date.now(), // 实际工作中后端提供
+            val,
+            completed: false // 选中状态
+        }]);
     }
 
-
+    console.log(todos);
     return (<div id="todoapp">
         <Header addTodo = {addTodo}/>
         <Main/>
