@@ -10,12 +10,16 @@ function Txt(props){
 }
 function Edit(props){
     const {text,setText,setEdit} = props;
+    function toScroll(){
+        let txt = document.querySelector("#txt");
+        let y = window.scrollY;
+        // 修改位移值相对于滚动条进行位移
+        txt.style.transform = `translateY(${y}px)`;
+        console.log(y);
+    }
     useEffect(()=>{
-        window.addEventListener("scroll",()=>{
-            console.log(document.querySelector("#txt"));
-        });
-        console.log(1);
-    })
+        window.addEventListener("scroll",toScroll);
+    },[])
     return (<input
         type="text"
         value = {text}
