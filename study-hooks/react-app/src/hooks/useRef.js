@@ -8,13 +8,12 @@ function Txt(props){
         }}>编辑</a></div>
     );
 }
-
 function Edit(props){
     const {text,setText,setEdit} = props;
     let t = useRef(null);
+
     function toScroll(){
         let y = window.scrollY;
-        // 修改位移值相对于滚动条进行位移
         t.current.style.transform = `translateY(${y}px)`;
         console.log(y);
     }
@@ -29,7 +28,7 @@ function Edit(props){
         type="text"
         value = {text}
         id = "txt"
-        ref={t}
+        ref = {t}
         onChange = {
             (e)=>{
                 setText(e.target.value);
@@ -42,25 +41,17 @@ function Edit(props){
         }
     />)
 }
+
 function Ref(){
-    const [text,setText] = useState("这是今天的课程");
-    const [edit,setEdit] = useState(false);
-    useEffect(()=>{
-        console.log("Effect组件更新了");
-    },[]);
+    const [nub,setNub] = useState(0);
+    const prev = useRef(nub);
+
     return (<div>
-        {edit?
-            <Edit
-                text = {text}
-                setText = {setText}
-                setEdit = {setEdit}
-            />
-            :
-            <Txt text={text} setEdit={setEdit} />
-        }
-        {[...(".".repeat(100))].map((item,index)=>{
-            return <div key={index}>页面内容填充</div>
-        })}
+        <p>当前值: {nub}</p>
+        <p>上次值: {prev.current}</p>
+        <button onClick={()=>{
+            setNub(nub + 1);
+        }}>递增</button>
     </div>);
 }
 
