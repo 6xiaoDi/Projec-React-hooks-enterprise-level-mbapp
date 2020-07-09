@@ -10,9 +10,16 @@ function Txt(props){
 }
 function Edit(props){
     const {text,setText,setEdit} = props;
+    useEffect(()=>{
+        window.addEventListener("scroll",()=>{
+            console.log(document.querySelector("#txt"));
+        });
+        console.log(1);
+    })
     return (<input
         type="text"
         value = {text}
+        id = "txt"
         onChange = {
             (e)=>{
                 setText(e.target.value);
@@ -28,14 +35,8 @@ function Edit(props){
 function Effect(){
     const [text,setText] = useState("这是今天的课程");
     const [edit,setEdit] = useState(false);
-    // useEffect(()=>{
-    //     console.log("组件更新了");
-    // },[edit,text]);
-    // useEffect(()=>{
-    //     console.log("组件更新了");
-    // },[edit]);
     useEffect(()=>{
-        console.log("组件更新了");
+        console.log("Effect组件更新了");
     },[]);
     return (<div>
         {edit?
