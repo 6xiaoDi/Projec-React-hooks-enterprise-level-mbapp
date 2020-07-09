@@ -4,6 +4,9 @@ function Txt(props){
     let {text,setEdit} = props;
     useEffect(()=>{
         console.log("组件状态有变化了");
+        return ()=>{
+            console.log("txt组件卸载了");
+        }
     });
     return (
         <div>{text}<a onClick={()=>{
