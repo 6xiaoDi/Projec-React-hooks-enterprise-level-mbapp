@@ -45,7 +45,9 @@ function Edit(props){
 function Ref(){
     const [nub,setNub] = useState(0);
     const prev = useRef(nub);
-
+    useEffect(()=>{
+        prev.current = nub;
+    });
     return (<div>
         <p>当前值: {nub}</p>
         <p>上次值: {prev.current}</p>
