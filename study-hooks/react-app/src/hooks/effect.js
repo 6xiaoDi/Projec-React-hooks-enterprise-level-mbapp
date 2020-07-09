@@ -19,6 +19,10 @@ function Edit(props){
     }
     useEffect(()=>{
         window.addEventListener("scroll",toScroll);
+        return ()=>{
+            console.log("Edit组件卸载了");
+            window.removeEventListener("scroll",toScroll);
+        }
     },[])
     return (<input
         type="text"
