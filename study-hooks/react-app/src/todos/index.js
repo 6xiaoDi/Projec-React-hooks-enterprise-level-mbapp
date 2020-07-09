@@ -20,7 +20,7 @@ function Todos(){
     console.log(todos);
     return (<div id="todoapp">
         <Header addTodo = {addTodo}/>
-        <Main/>
+        <Main todos={todos}/>
         <Footer/>
     </div>);
 }

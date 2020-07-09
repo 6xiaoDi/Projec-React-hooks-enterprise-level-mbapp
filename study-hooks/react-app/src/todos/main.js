@@ -14,15 +14,21 @@ function Li(){
     )
 }
 
-function Mian(){
-  return (
-      <section id="main" >
-          <input id="toggle-all" type="checkbox" checked=""/>
-          <label htmlFor="toggle-all">Mark all as complete</label>
-          <ul id="todo-list">
-              <Li/>
-          </ul>
-      </section>
+function Mian(props){
+    let {todos} = props;
+    return (
+    <section
+        id="main"
+        style={{
+            display: todos.length > 0 ? 'block' : 'none'
+        }}
+    >
+        <input id="toggle-all" type="checkbox" checked=""/>
+        <label htmlFor="toggle-all">Mark all as complete</label>
+        <ul id="todo-list">
+            <Li/>
+        </ul>
+    </section>
     );
 }
 
