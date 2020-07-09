@@ -17,6 +17,14 @@ class Effect extends Component{
             {edit?
                 <input
                     type="text"
+                    value={text}
+                    onChange={
+                        (e) => {
+                            this.setState({
+                            text:e.target.value
+                            })
+                        }
+                    }
                 />
                 :
                 <div >{text}  <a onClick={()=>{
@@ -27,7 +35,7 @@ class Effect extends Component{
                 </div>
             }
       </div>);
-  }
+   }
 }
 
 export default Effect;
