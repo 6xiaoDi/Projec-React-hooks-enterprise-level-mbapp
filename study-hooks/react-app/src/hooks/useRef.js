@@ -13,17 +13,15 @@ function Edit(props){
     const {text,setText,setEdit} = props;
     let t = useRef(null);
     function toScroll(){
-        let txt = document.querySelector("#txt");
         let y = window.scrollY;
         // 修改位移值相对于滚动条进行位移
-        txt.style.transform = `translateY(${y}px)`;
+        t.current.style.transform = `translateY(${y}px)`;
         console.log(y);
     }
     useEffect(()=>{
-        console.log(t);
         window.addEventListener("scroll",toScroll);
+        t.current.select();
         return ()=>{
-            console.log("Edit组件卸载了");
             window.removeEventListener("scroll",toScroll);
         }
     },[])
