@@ -1,11 +1,11 @@
 import React from 'react';
-import Effect from "./hooks/effect";
+import UseRef from './hooks/useRef';
 
 
 function App() {
   return (
     <div className="App">
-      <Effect/>
+      <UseRef/>
     </div>
   );
 }
