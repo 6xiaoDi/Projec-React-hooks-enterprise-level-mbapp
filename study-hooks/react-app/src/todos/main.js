@@ -1,7 +1,8 @@
 import React, {useState, useEffect, useRef } from 'react';
 
 function Li(props){
-    let {inner,changeCompleted} = props;
+    let {inner,changeCompleted,remove} = props;
+    let {id} = inner;
     return (
         <li className={inner.completed ? "done" : ""}>
             <div className="view" >
@@ -10,12 +11,15 @@ function Li(props){
                     type="checkbox"
                     checked={inner.completed}
                     onChange={(e)=>{
-                        changeCompleted(inner.id,e.target.checked);
+                        changeCompleted(id,e.target.checked);
                     }}
                 />
                 <label>{inner.val}</label>
-                <a className="destroy">
-
+                <a className="destroy"
+                   onClick={()=>{
+                       remove(id);
+                   }}
+                >
                 </a>
             </div>
             <input
@@ -28,7 +32,7 @@ function Li(props){
 }
 
 function Mian(props){
-    let {todos,changeCompleted} = props;
+    let {todos} = props;
     return (
     <section
         id="main"
@@ -44,7 +48,7 @@ function Mian(props){
                     return <Li
                         key = {item.id}
                         inner = {item}
-                        changeCompleted = {changeCompleted}
+                        {...props}
                     />
                 })
             }

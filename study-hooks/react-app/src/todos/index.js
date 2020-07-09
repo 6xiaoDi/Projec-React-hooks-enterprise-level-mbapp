@@ -28,12 +28,17 @@ function Todos(){
         setTodos([...todos]);
     }
 
+    function remove(id){
+        setTodos(todos.filter(item=>item.id !== id));
+    }
+
     console.log(todos);
     return (<div id="todoapp">
         <Header addTodo = {addTodo}/>
         <Main
             todos={todos}
             changeCompleted={changeCompleted}
+            remove={remove}
         />
         <Footer/>
     </div>);
