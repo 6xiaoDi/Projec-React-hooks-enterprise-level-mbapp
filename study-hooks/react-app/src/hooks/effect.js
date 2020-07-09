@@ -25,6 +25,13 @@ class Effect extends Component{
                             })
                         }
                     }
+                    onBlur={
+                        ()=>{
+                            this.setState({
+                                edit:false
+                            })
+                        }
+                    }
                 />
                 :
                 <div >{text}  <a onClick={()=>{
