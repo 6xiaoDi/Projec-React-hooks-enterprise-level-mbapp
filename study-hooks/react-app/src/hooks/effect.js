@@ -1,13 +1,17 @@
 import React,{Component,useState} from "react";
 
-function Txt(props){
-    let {text,setEdit} = props;
-
-    return (
-        <div>{text}<a onClick={()=>{
-            setEdit(true);
-        }}>编辑</a></div>
-    );
+class Txt extends Component{
+    componentWillUnmount(){
+        console.log("组件即将卸载");
+    }
+    render(){
+        let {text,setEdit} = this.props;
+        return (
+            <div>{text}<a onClick={()=>{
+                setEdit(true);
+            }}>编辑</a></div>
+        );
+    }
 }
 
 class Effect extends Component{
