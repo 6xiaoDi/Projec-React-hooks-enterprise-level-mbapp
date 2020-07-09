@@ -17,10 +17,24 @@ function Todos(){
         }]);
     }
 
+    // 修养修改的对应项id
+    function changeCompleted(id,completed){
+        todos.forEach(item=>{
+            if(id == item.id){
+                item.completed = completed;
+            }
+        });
+        // 不能直接传todos，因为对比的时候是浅层对比，还是认为同一个对象，是不会进行更新的，我们应该解构出来返回一个新数组
+        setTodos([...todos]);
+    }
+
     console.log(todos);
     return (<div id="todoapp">
         <Header addTodo = {addTodo}/>
-        <Main todos={todos}/>
+        <Main
+            todos={todos}
+            changeCompleted={changeCompleted}
+        />
         <Footer/>
     </div>);
 }
