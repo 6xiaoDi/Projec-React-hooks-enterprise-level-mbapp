@@ -1,11 +1,11 @@
 import React from 'react';
-import Todos from './todos/index';
+import Memo from './hooks/memo';
 
 
 function App() {
   return (
     <div className="App">
-      <Todos/>
+      <Memo/>
     </div>
   );
 }
