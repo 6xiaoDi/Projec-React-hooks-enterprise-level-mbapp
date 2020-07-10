@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef } from 'react';
 function Li(props){
-    let {inner,changeCompleted,remove} = props;
+    let {inner,changeCompleted,remove,editVal} = props;
     let {id} = inner;
     const [edit,setEdit] = useState(false);
     const elEdit = useRef(null);
@@ -47,6 +47,9 @@ function Li(props){
                 }}
                 onBlur={()=>{
                     setEdit(false);
+                }}
+                onChange={(e)=>{
+                    editVal(id, e.target.value);
                 }}
             />
         </li>

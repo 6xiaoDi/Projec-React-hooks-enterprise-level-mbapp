@@ -32,13 +32,22 @@ function Todos(){
         setTodos(todos.filter(item=>item.id !== id));
     }
 
-    console.log(todos);
+    function editVal(id,val){
+        todos.forEach(item=>{
+            if(id == item.id){
+                item.val = val;
+            }
+        });
+        setTodos([...todos]);
+    }
+
     return (<div id="todoapp">
         <Header addTodo = {addTodo}/>
         <Main
             todos={todos}
             changeCompleted={changeCompleted}
             remove={remove}
+            editVal={editVal}
         />
         <Footer/>
     </div>);
