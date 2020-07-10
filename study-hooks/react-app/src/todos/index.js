@@ -32,6 +32,10 @@ function Todos(){
         setTodos(todos.filter(item=>item.id !== id));
     }
 
+    function removeCompleted(){
+        setTodos(todos.filter(item=>!item.completed));
+    }
+
     function editVal(id,val){
         todos.forEach(item=>{
             if(id === item.id){
@@ -51,6 +55,7 @@ function Todos(){
         />
         <Footer
             todos={todos}
+            removeCompleted = {removeCompleted}
         />
     </div>);
 }
