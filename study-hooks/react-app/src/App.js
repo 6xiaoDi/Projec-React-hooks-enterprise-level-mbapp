@@ -1,11 +1,11 @@
 import React from 'react';
-import CallBack from "./hooks/callback";
+import Context from "./hooks/context";
 
 
 function App() {
   return (
     <div className="App">
-      <CallBack/>
+      <Context/>
     </div>
   );
 }
