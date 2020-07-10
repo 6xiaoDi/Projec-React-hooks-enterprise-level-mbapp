@@ -6,19 +6,32 @@ class Child extends Component {
     // 不用Consumer传递数据，在类式组件中可以申明一个静态属性contextType给它赋值后，其实它就是类式组件中context属性
     static contextType = myContext;
     render(){
-        console.log(this.context);
         return (
             <strong>这是祖先传下来的宝贝: {this.context.info}</strong>
         )
     }
 }
 
+function Child2(){
+    return (
+        <myContext.Consumer>
+            {
+                context=>{
+                    console.log(context);
+                    return <div><strong>这是祖先传下来的宝贝: {context.info}</strong></div>
+                }
+            }
+        </myContext.Consumer>
+
+    )
+}
 
 class Parent extends Component {
     render(){
-        return (<p>
+        return (<div>
             <Child/>
-        </p>);
+            <Child2/>
+        </div>);
     }
 }
 
