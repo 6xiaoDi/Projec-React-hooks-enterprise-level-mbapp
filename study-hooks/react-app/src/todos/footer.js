@@ -1,7 +1,12 @@
 import React from 'react';
-function Footer(){
+function Footer(props){
+    let {todos} = props;
       return (
-          <footer >
+          <footer
+              style={{
+                  display:todos.length > 0 ? "block":"none"
+              }}
+          >
               <a id="clear-completed" >Clear 0 completed item</a>
               <div id="todo-count">10 items left</div>
           </footer>

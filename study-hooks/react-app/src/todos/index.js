@@ -20,7 +20,7 @@ function Todos(){
     // 修养修改的对应项id
     function changeCompleted(id,completed){
         todos.forEach(item=>{
-            if(id == item.id){
+            if(id === item.id){
                 item.completed = completed;
             }
         });
@@ -34,7 +34,7 @@ function Todos(){
 
     function editVal(id,val){
         todos.forEach(item=>{
-            if(id == item.id){
+            if(id === item.id){
                 item.val = val;
             }
         });
@@ -49,7 +49,9 @@ function Todos(){
             remove={remove}
             editVal={editVal}
         />
-        <Footer/>
+        <Footer
+            todos={todos}
+        />
     </div>);
 }
 
