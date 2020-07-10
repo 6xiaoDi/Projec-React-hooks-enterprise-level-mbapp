@@ -3,6 +3,12 @@ function Li(props){
     let {inner,changeCompleted,remove} = props;
     let {id} = inner;
     const [edit,setEdit] = useState(false);
+    const elEdit = useRef(null);
+    useEffect(()=>{
+        if(edit){
+            elEdit.current.select();
+        }
+    },[edit]);
     return (
         <li className={inner.completed ? "done" : ""}>
             <div
@@ -35,6 +41,7 @@ function Li(props){
                 className="edit"
                 type="text"
                 value={inner.val}
+                ref={elEdit}
                 style={{
                     display:edit?"block":"none"
                 }}
