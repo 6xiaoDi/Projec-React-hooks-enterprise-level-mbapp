@@ -1,11 +1,11 @@
 import React from 'react';
-import Memo from './hooks/memo';
+import CallBack from "./hooks/callback";
 
 
 function App() {
   return (
     <div className="App">
-      <Memo/>
+      <CallBack/>
     </div>
   );
 }
