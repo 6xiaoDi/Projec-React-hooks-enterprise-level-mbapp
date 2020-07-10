@@ -7,6 +7,11 @@ function Li(props){
     useEffect(()=>{
         if(edit){
             elEdit.current.select();
+        } else {
+            // 如果为空：就不能干别的事情，焦点一直在编辑框
+            if(!inner.val.trim()){
+                setEdit(true);
+            }
         }
     },[edit]);
     return (
