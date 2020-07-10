@@ -1,11 +1,16 @@
 import React, {useState, useEffect, useRef } from 'react';
-
 function Li(props){
     let {inner,changeCompleted,remove} = props;
     let {id} = inner;
+    const [edit,setEdit] = useState(false);
     return (
         <li className={inner.completed ? "done" : ""}>
-            <div className="view" >
+            <div
+                className="view"
+                style = {{
+                    display: edit?"none":"block"
+                }}
+            >
                 <input
                     className="toggle"
                     type="checkbox"
@@ -14,7 +19,11 @@ function Li(props){
                         changeCompleted(id,e.target.checked);
                     }}
                 />
-                <label>{inner.val}</label>
+                <label
+                    onDoubleClick = {()=>{
+                        setEdit(true);
+                    }}
+                >{inner.val}</label>
                 <a className="destroy"
                    onClick={()=>{
                        remove(id);
@@ -26,6 +35,9 @@ function Li(props){
                 className="edit"
                 type="text"
                 value={inner.val}
+                style={{
+                    display:edit?"block":"none"
+                }}
             />
         </li>
     )
