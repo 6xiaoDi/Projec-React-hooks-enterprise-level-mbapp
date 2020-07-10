@@ -6,12 +6,7 @@ function Memo() {
     let age2 = useMemo(()=>{
         console.log(1);
         return age < 18?"未成年":"成年人";
-    },[age]);
-
-    useEffect(()=>{
-        console.log("更新完成之后！")
-    },[age])
-    console.log("开始更新了");
+    },[age < 18]);
     return (<div>
         姓名:{name},<br />
         年龄:{age},<br />
