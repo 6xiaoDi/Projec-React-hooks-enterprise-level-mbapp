@@ -1,11 +1,11 @@
 import React from 'react';
-import Reduce from "./hooks/Reduce";
+import Hook from "./hooks/hook";
 
 
 function App() {
   return (
     <div className="App">
-      <Reduce/>
+      <Hook/>
     </div>
   );
 }
