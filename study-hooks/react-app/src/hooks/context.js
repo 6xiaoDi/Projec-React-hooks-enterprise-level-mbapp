@@ -1,4 +1,4 @@
-import React, {Component, createContext} from 'react';
+import React, {Component, createContext, useContext} from 'react';
 
 let myContext = createContext();
 
@@ -13,16 +13,9 @@ class Child extends Component {
 }
 
 function Child2(){
+    let {info} = useContext(myContext);
     return (
-        <myContext.Consumer>
-            {
-                context=>{
-                    console.log(context);
-                    return <div><strong>这是祖先传下来的宝贝: {context.info}</strong></div>
-                }
-            }
-        </myContext.Consumer>
-
+        <div><strong>这是祖先传下来的宝贝: {info} </strong></div>
     )
 }
 
