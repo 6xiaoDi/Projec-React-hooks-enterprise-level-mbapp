@@ -36,6 +36,13 @@ function Todos(){
         setTodos(todos.filter(item=>!item.completed));
     }
 
+    function changeAllCompleted(completed){
+        todos.forEach(item=>{
+            item.completed = completed;
+        });
+        setTodos([...todos]);
+    }
+
     function editVal(id,val){
         todos.forEach(item=>{
             if(id === item.id){
@@ -52,6 +59,7 @@ function Todos(){
             changeCompleted={changeCompleted}
             remove={remove}
             editVal={editVal}
+            changeAllCompleted = {changeAllCompleted}
         />
         <Footer
             todos={todos}

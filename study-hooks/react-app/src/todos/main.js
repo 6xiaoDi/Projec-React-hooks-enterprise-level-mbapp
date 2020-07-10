@@ -62,7 +62,8 @@ function Li(props){
 }
 
 function Mian(props){
-    let {todos} = props;
+    let {todos,changeAllCompleted} = props;
+    let completed = todos.filter(item=>item.completed);
     return (
     <section
         id="main"
@@ -70,7 +71,14 @@ function Mian(props){
             display: todos.length > 0 ? 'block' : 'none'
         }}
     >
-        <input id="toggle-all" type="checkbox" checked=""/>
+        <input
+            id="toggle-all"
+            type="checkbox"
+            checked={completed.length === todos.length}
+            onChange={(e)=>{
+                changeAllCompleted(e.target.checked);
+            }}
+        />
         <label htmlFor="toggle-all">Mark all as complete</label>
         <ul id="todo-list">
             {
