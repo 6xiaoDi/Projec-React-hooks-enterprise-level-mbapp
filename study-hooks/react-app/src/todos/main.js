@@ -38,6 +38,9 @@ function Li(props){
                 style={{
                     display:edit?"block":"none"
                 }}
+                onBlur={()=>{
+                    setEdit(false);
+                }}
             />
         </li>
     )
