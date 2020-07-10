@@ -13,10 +13,10 @@ function Header(props){
                         setTodo(e.target.value);
                     }
                 }
-
+                autoComplete='off'
                 onKeyDown={(e) => {  // 回车事件
                     // 判断如果是回车
-                    if (e.keyCode == 13){
+                    if (e.keyCode === 13){
                         if (!todo.trim()){
                             alert("输入内容不能为空！");
                             e.target.focus();
