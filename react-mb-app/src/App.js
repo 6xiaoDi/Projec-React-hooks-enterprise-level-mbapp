@@ -1,10 +1,15 @@
 import React from 'react';
+import {BrowserRouter} from "react-router-dom"
+import IndexRouter from "./router";
+
 
 function App() {
   return (
-    <div className="App">
-
-    </div>
+      <BrowserRouter>
+        <div className="App">
+            <IndexRouter/>
+        </div>
+      </BrowserRouter>
   );
 }
 

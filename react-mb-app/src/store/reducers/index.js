@@ -1,5 +1,5 @@
 
-function index (state,action) {
+function index (state={},action) {
     return state;
 }
 
