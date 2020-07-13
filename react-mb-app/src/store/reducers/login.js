@@ -5,5 +5,5 @@ export default function getUser(state="",action){
         case "LOGOUT":
             return "";        
     };
-    return state
+    return state;
 }
