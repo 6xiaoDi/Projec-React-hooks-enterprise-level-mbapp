@@ -5,8 +5,6 @@ import Lecturer from "../view/lecturer";
 import Work from "../view/work";
 import Login from "../view/login";
 
-
-
 // 存放对应的router
 const routeList = [
     {
