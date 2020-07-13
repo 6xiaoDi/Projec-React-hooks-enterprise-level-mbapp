@@ -9,7 +9,7 @@ export default function Frame(props){
             <Header/>
             <Menu/>
             <div id="main">
-
+                {props.children}
             </div>
         </div>
     );
