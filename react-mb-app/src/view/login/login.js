@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import {connect} from "react-redux"
 import {withRouter} from "react-router-dom";
 import login from "../../store/action/login";
+import {useBack} from "../../common/hook/index"
 
 function LoginBox(props){
     const [user,setUser] = useState("");
@@ -9,6 +10,7 @@ function LoginBox(props){
     const [vcode,setVcode] = useState(""); // 验证码
     const [vcodeShow,setVcodeShow] = useState(false); // 显示验证码
     const [vcodeSrc,setVcodeSrc] = useState("/miaov/user/verify?"+Date.now()); // 验证码src，后加时间戳（每次不一样）是为了防止缓存。
+    const back = useBack(props.history);
     function toLogin(){
         props.dispatch(login({
             verify: vcode,
@@ -20,7 +22,9 @@ function LoginBox(props){
                 // 登录失败
                 if(data.code != 0){
                     setVcodeSrc("/miaov/user/verify?"+Date.now());
+                // 登录成功跳回首页
                 } else {
+                    back();
                 }
             },100);
         })
@@ -84,4 +88,4 @@ function LoginBox(props){
     );
 }
 // 原样返回
-export default connect(res=>res)(LoginBox);
+export default connect(res=>res)(withRouter(LoginBox));
