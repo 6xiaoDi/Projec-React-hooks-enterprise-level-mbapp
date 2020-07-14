@@ -20,7 +20,7 @@ function LoginBox(props){
             alert(data.msg);
             setTimeout(()=>{ //alert如果有获得焦点的功能，弹出的同时又会触发获得焦点，这个时候会有反复的循环问题，定时器就为了解决这个bug。如果自己写的弹窗就不需要这个定时器，只需监测用户关闭了弹窗后再继续下面的操作。
                 // 登录失败
-                if(data.code != 0){
+                if(data.code !== 0){
                     setVcodeSrc("/miaov/user/verify?"+Date.now());
                 // 登录成功跳回首页
                 } else {

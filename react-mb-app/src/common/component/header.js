@@ -1,8 +1,8 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import {useBack} from "../hook/index";
 import {Link,withRouter} from "react-router-dom";
 import {connect} from "react-redux";
-
+import isLogin from "../../store/action/isLogin";
 
 function getUser(path, user){
     if(path === "/login"){
@@ -23,6 +23,10 @@ function Header(props){
     const back = useBack(props.history);
     const path = props.location.pathname;
     const {user} =  props;
+    // 第二个参数传空数组即副作用钩子意思是在组件挂载后执行。
+    useEffect(()=>{
+        props.dispatch(isLogin());
+    },[]);
     return (
         <header id="header">
             <nav className="menu">
