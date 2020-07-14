@@ -1,15 +1,28 @@
 import React from 'react';
 import {useBack} from "../hook/index";
 import {Link,withRouter} from "react-router-dom";
+import {connect} from "react-redux";
 
 
-function getUser(path){
-    return path === "/login" ? "" : <Link className="user" to="/login"/>
+function getUser(path, user){
+    if(path === "/login"){
+        return ""
+    }
+    // 判断是否登录了
+    if(user){
+        return (<span className="header-btn-right">
+                <span
+                    className="header-user"
+                >{user}</span>
+            </span>);
+    }
+    return <Link className="user" to="/login" />;
 }
 
 function Header(props){
     const back = useBack(props.history);
     const path = props.location.pathname;
+    const {user} =  props;
     return (
         <header id="header">
             <nav className="menu">
@@ -31,8 +44,10 @@ function Header(props){
                     </a>}
             </nav>
             <h1 className="logo">miaov.com</h1>
-            {getUser(path)}
+            {getUser(path,user)}
         </header>
     );
-} 
-export default withRouter(Header);
+}
+export default connect(state=>{
+    return {user:state.getUser};
+})(withRouter(Header));
