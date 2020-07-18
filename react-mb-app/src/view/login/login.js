@@ -11,6 +11,7 @@ function LoginBox(props){
     const [vcodeShow,setVcodeShow] = useState(false); // 显示验证码
     const [vcodeSrc,setVcodeSrc] = useState("/miaov/user/verify?"+Date.now()); // 验证码src，后加时间戳（每次不一样）是为了防止缓存。
     const back = useBack(props.history);
+    const {setDeg} = props;
     function toLogin(){
         props.dispatch(login({
             verify: vcode,
@@ -82,7 +83,13 @@ function LoginBox(props){
                     onClick={toLogin}
                 >登录</button>
 
-                <p className="form_tip">没有帐号？<a href="#">立即注册</a></p>
+                <p className="form_tip">没有帐号？
+                    <a href="#"
+                        onClick={()=>{
+                            setDeg(-180)
+                        }}
+                    >立即注册</a>
+                </p>
             </div>
         </div>
     );

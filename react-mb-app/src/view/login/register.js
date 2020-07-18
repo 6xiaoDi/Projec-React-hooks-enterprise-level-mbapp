@@ -7,10 +7,12 @@ import {useBack} from "../../common/hook/index";
 function RegisterBox(props){
     const [user,setUser] = useState("");
     const [password,setPassword] = useState("");
+    const [password2,setPassword2] = useState("");
     const [vcode,setVcode] = useState("");
     const [vcodeShow,setVcodeShow] = useState(false);
     const [vcodeSrc,setVcodeSrc] = useState("/miaov/user/verify?"+Date.now());
     const back = useBack(props.history);
+    const {setDeg} = props;
 
     function toRegister(){
         // props.dispatch(register({
@@ -44,8 +46,8 @@ function RegisterBox(props){
                 </p>
                 <p>
                     <input 
-                        type="password" 
-                        placeholder="请输入密码" 
+                        type="password"
+                        placeholder="请输入密码"
                         value={password}
                         onChange={e=>{
                             setPassword(e.target.value);
@@ -54,7 +56,7 @@ function RegisterBox(props){
                 </p>
                 <p>
                     <input 
-                        type="password" 
+                        type="password"
                         placeholder="请确认密码"
                     />
                 </p>
@@ -84,10 +86,13 @@ function RegisterBox(props){
                     className="form_btn"
                     onClick = {toRegister}        
                 >马上注册</button>
-                <p className="form_tip">已有帐号？<a
-                    onClick={()=>{
-                    }}
-                >立即登录</a></p>
+                <p className="form_tip">已有帐号？
+                    <a
+                        onClick={()=>{
+                            setDeg(0)
+                        }}
+                    >立即登录</a>
+                </p>
             </div>
         </div>
     );
