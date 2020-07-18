@@ -3,10 +3,14 @@ import Header from "./header";
 import Menu from "./menu";
 
 export default function Frame(props){
-    const [showMenu,setShowMenu] = useState(false);
+    const [showMenu,setShowMenu] = useState(false); // 菜单的展开与收缩
 
     function changeShow() {
         setShowMenu(!showMenu);
+    }
+
+    function menuHide() {
+        setShowMenu(false);
     }
 
     return ( 
@@ -18,7 +22,10 @@ export default function Frame(props){
             <div
                 id="main"
                 style={{
-                    transform:`translateX(${showMenu?4.5:0})`
+                    transform:`translateX(${showMenu?4.5:0}rem)`
+                }}
+                onTouchStart={()=>{
+                    menuHide();
                 }}
             >
                 {props.children}
