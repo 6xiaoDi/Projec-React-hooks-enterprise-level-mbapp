@@ -4,15 +4,14 @@
 }
 .banner_img {
   width: 100%;
-  overflow: hidden;
+  overflow: auto;
 }
 .banner_list {
-  float: left;
-  display: flex;
+  width: 400%;
 }
 .banner_list li {
-  width: 100vw;
-  flex: none;
+  float: left;
+  width: 25%;
 }
 .banner_list img {
   width: 100%;
@@ -118,7 +117,6 @@
   position: absolute;
   left: 0.96rem;
   bottom: 0.24rem;
-  text-align: center;
 }
 .index_content .price {
   color: #f18cc4;
@@ -166,9 +164,7 @@
   display: block;
   color: #e15671;
 }
-.register_vip a {
-  margin: 0 auto;
-  display: block;
+.register_vip button {
   width: 4rem;
   height: 0.93333333rem;
   padding: 0 0.13333333rem 0.16rem 0;
@@ -221,7 +217,6 @@
   background-size: 100% auto;
 }
 .works {
-  position: relative;
   padding-top: 0.2rem;
 }
 .works h3 {
@@ -230,10 +225,7 @@
   color: #000;
 }
 .works .more {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  bottom: -1.37333333rem;
+  display: block;
   font: 0.34666667rem / 1.37333333rem fzlt;
   text-align: center;
 }
@@ -254,7 +246,6 @@
 .works_list li {
   height: 4.73333333rem;
   width: 4.73333333rem;
-  overflow: hidden;
   float: left;
   position: relative;
 }
@@ -277,10 +268,6 @@
 }
 .works_list .wrork_txt strong {
   float: left;
-  width: 2.2rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   font: 0.34666667rem / 0.73333333rem fzlt;
   text-indent: 0.22666667rem;
 }

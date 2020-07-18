@@ -78,13 +78,11 @@ h2,
 h3,
 h4,
 ul,
-ol,
 p,
 figure {
   margin: 0;
 }
-ul,
-ol {
+ul {
   list-style: none;
   padding: 0;
 }
