@@ -10,5 +10,8 @@ function useBack(history){
     }
 }
 
+function useInnerHeight(){
+    return window.innerHeight;
+}
 
-export {useBack};
+export {useBack,useInnerHeight};

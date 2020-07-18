@@ -69,12 +69,14 @@
   background-size: 100% auto;
 }
 #main {
+  box-sizing: border-box;
+  /*hight:100vh 可以设置成一屏高度进行滑屏，但在部分手机加上头部会超出屏幕从而导致出问题。*/
   position: relative;
   z-index: 1;
   padding-top: 1.2rem;
-  min-height: 12.82666667rem;
+  /*min-height: 12.82666667rem;不需最小高度，而是铺满一屏幕*/
   background: #f2f9fc;
-  transition: .5s;
+  transition: .5s transform;
 }
 #footer {
   background: #323436;
