@@ -1,12 +1,19 @@
 import React from 'react';
 import {NavLink} from "react-router-dom";
-
-export default function Menu(){
+import {nav} from "../../router/route_list";
+export default function Menu(porps){
     return (
         <nav id="menu">
-            <NavLink className="iconfont icon-home" to="/">首页</NavLink>
-            <NavLink className="iconfont icon-kecheng" to="/course">课程安排</NavLink>
-            <NavLink className="iconfont icon-peixunjiangshi" to="/lecturer">讲师团队</NavLink>
+            {nav.map((item,index)=>{
+                return (<NavLink
+                    className={item.className}
+                    to={item.path}
+                    key={index}
+                    exact={true}
+                    activeClassName={"active"}
+                    onTouchEnd={porps.menuHide}
+                >{item.name}</NavLink>)
+            })}
         </nav>
     );
 }

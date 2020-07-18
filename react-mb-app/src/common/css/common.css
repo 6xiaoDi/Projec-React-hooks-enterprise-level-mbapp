@@ -161,10 +161,12 @@
   border-bottom: 1px solid rgba(255, 255, 255, .3);
   color: rgba(255, 255, 255, .8);
 }
+#menu a.active {
+  color: #fff;
+}
 #menu a:before {
   font-size: .4rem;
   margin: 0 .1rem;
-  color: rgba(255, 255, 255, .6);
   vertical-align: middle;
 }
 #menu a:first-child {

@@ -26,7 +26,9 @@ export default function Frame(props){
             <Header
                 changeShow = {changeShow}
             />
-            <Menu/>
+            <Menu
+                menuHide = {menuHide}
+            />
             <div
                 id="main"
                 style={{
