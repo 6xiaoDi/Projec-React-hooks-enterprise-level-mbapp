@@ -33,13 +33,17 @@ export default function Frame(props){
                     transform:`translateX(${showMenu?4.5:0}rem)`,
                     height:innerH
                 }}
-                ref = {wrap}
                 onTouchStart={()=>{
                     menuHide();
                 }}
             >
-                <div>
-                    {props.children}
+                <div
+                    className="pageWrap"
+                    ref = {wrap}
+                >
+                    <div>
+                        {props.children}
+                    </div>
                 </div>
             </div>
         </div>

@@ -82,6 +82,11 @@
   background: #323436;
   padding-top: 0.06666667rem;
 }
+.pageWrap {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
 .copyright {
   text-align: center;
   font: 0.29333333rem / 0.90666667rem "微软雅黑";
