@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import {useBack} from "../../common/hook/index";
+import register from "../../store/action/register";
 
 
 function RegisterBox(props){
@@ -15,19 +16,20 @@ function RegisterBox(props){
     const {setDeg} = props;
 
     function toRegister(){
-        // props.dispatch(register({
-        //     verify: vcode,
-        //     username: user,
-        //     password,
-        // })).then(data=>{
-        //     alert(data.msg);
-        //     setTimeout(()=>{
-        //         if(data.code === 0){
-        //
-        //         }
-        //         setVcodeSrc("/miaov/user/verify?"+Date.now());
-        //     },100);
-        // })
+        props.dispatch(register({
+            verify: vcode,
+            username: user,
+            password,
+            repassword:password2
+        })).then(data=>{
+            alert(data.msg);
+            setTimeout(()=>{
+                if(data.code === 0){
+                    setDeg(0)
+                }
+                setVcodeSrc("/miaov/user/verify?"+Date.now());
+            },100);
+        })
     }
     let point = {};
     return (
@@ -55,9 +57,13 @@ function RegisterBox(props){
                     />
                 </p>
                 <p>
-                    <input 
+                    <input
                         type="password"
                         placeholder="请确认密码"
+                        value={password2}
+                        onChange={e=>{
+                            setPassword2(e.target.value);
+                        }}
                     />
                 </p>
                 <p className="clearfix">
