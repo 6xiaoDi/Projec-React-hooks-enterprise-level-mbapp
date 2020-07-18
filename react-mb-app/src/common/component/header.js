@@ -10,8 +10,8 @@ import logout from "../../store/action/logout";
 function Header(props){
     const back = useBack(props.history);
     const path = props.location.pathname;
-    const {user,setShowMenu} =  props;
-    const [isBtnShow,changeShow] = useState(false);
+    const {user,changeShow} =  props;
+    const [isBtnShow,setBtnShow] = useState(false);// 退出按钮
     // 第二个参数传空数组即副作用钩子意思是在组件挂载后执行。
     useEffect(()=>{
         props.dispatch(isLogin());
@@ -26,6 +26,9 @@ function Header(props){
             return (<span className="header-btn-right">
                 <span
                     className="header-user"
+                    onClick = {()=>{
+                        setBtnShow(!isBtnShow);
+                    }}
                 >{user}</span>
                 <span
                     className="header-logout-btn"
