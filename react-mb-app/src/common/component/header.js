@@ -33,7 +33,7 @@ function Header(props){
                         display:isBtnShow?"block":"none"
                     }}
                     onClick={()=>{
-                        dispatch(logout());
+                        props.dispatch(logout());
                     }}
                 >退出</span>
             </span>);
