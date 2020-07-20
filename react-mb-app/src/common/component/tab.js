@@ -7,6 +7,7 @@ export default function Tab(props){
     let [now,setNow] = useState(0); // 代表当前被选中的是第几张图
     let bScroll = null;
     useEffect(()=>{
+        let timer = 0;
         bScroll = new BScroll(bannerWrap.current,{
             scrollX: true,
             scrollY: false,
@@ -20,6 +21,25 @@ export default function Tab(props){
             // console.log(bScroll.getCurrentPage());
             setNow(bScroll.getCurrentPage().pageX);
         });
+        timer = setInterval(()=>{
+            console.log(1);
+            bScroll.next(200);
+        },2000);
+        // 触摸图片，清除定时器
+        bannerWrap.current.addEventListener("touchstart",()=>{
+            clearInterval(timer);
+        });
+        // 手指抬起，开启定时器
+        bannerWrap.current.addEventListener("touchend",()=>{
+            timer = setInterval(()=>{
+                console.log(2);
+                bScroll.next(200)
+            },2000);
+        })
+        // 必须卸载后关掉定时器，否则切换到别页面定时器还在走，浪费性能
+        return ()=>{
+            clearInterval(timer);
+        }
     },[]);
     return (<div className="banner">
         <div className="banner_img" ref={bannerWrap}>
