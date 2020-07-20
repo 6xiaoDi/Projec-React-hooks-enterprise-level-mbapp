@@ -3,6 +3,8 @@ import {connect} from "react-redux"
 import Tab from '../../common/component/tab'
 import "../../common/css/index.css";
 import Course from "./course";
+import Vip from "./vip";
+import Coursev from "./coursev";
 
 
 // 后端传可以调接口接收，或者直接写死。
@@ -24,6 +26,8 @@ function Index(props) {
                 />
                 <section className="index_content">
                     <Course />
+                    <Vip/>
+                    <Coursev/>
                 </section>
             </div>
 
