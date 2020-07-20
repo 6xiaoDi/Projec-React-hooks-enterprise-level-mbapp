@@ -19,7 +19,11 @@ export default function Frame(props){
 
     useEffect (()=> {
         console.log(wrap);
-        pageScroll = new BScroll(wrap.current);
+        pageScroll = new BScroll(wrap.current,{
+            preventDefaultException:{
+                tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|A)$/ // 注意大写
+            }
+        });
     },[]);
     return ( 
         <div>
