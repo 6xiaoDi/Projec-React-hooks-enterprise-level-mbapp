@@ -4,7 +4,7 @@
 }
 .banner_img {
   width: 100%;
-  overflow: auto;
+  overflow: hidden;
 }
 .banner_list {
   float: left;
