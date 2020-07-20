@@ -2,6 +2,8 @@ import React from "react";
 import {connect} from "react-redux"
 import Tab from '../../common/component/tab'
 import "../../common/css/index.css";
+import Course from "./course";
+
 
 // 后端传可以调接口接收，或者直接写死。
 let imgData = [
@@ -20,6 +22,9 @@ function Index(props) {
                         return <img src={data}/>
                     }}
                 />
+                <section className="index_content">
+                    <Course />
+                </section>
             </div>
 
     )

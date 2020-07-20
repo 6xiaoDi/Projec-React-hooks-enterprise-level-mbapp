@@ -118,6 +118,7 @@
   position: absolute;
   left: 0.96rem;
   bottom: 0.24rem;
+  text-align: center;
 }
 .index_content .price {
   color: #f18cc4;
