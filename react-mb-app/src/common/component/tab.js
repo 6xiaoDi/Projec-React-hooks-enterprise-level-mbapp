@@ -11,5 +11,14 @@ export default function Tab(props){
                 }
             </ul>
         </div>
+        {
+            data.length < 1 ?"":(<ul className="banner_nav">
+                {
+                    data.map((item,index)=><li key={index}>
+
+                    </li>)
+                }
+            </ul>)
+        }
     </div>);
 }
