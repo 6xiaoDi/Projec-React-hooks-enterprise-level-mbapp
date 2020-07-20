@@ -5,6 +5,7 @@ import "../../common/css/index.css";
 import Course from "./course";
 import Vip from "./vip";
 import Coursev from "./coursev";
+import Works from "./works";
 
 
 // 后端传可以调接口接收，或者直接写死。
@@ -28,6 +29,7 @@ function Index(props) {
                     <Course />
                     <Vip/>
                     <Coursev/>
+                    <Works/>
                 </section>
             </div>
 
