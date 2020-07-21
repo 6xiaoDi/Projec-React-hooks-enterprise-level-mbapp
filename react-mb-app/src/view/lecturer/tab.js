@@ -1,7 +1,7 @@
 import React from 'react';
 import Tab from '../../common/component/tab';
 export default function LecturerTab(props){
-    let {data,newData} = props;
+    let {data,newData,showAlert} = props;
     return data.length<1?"":<Tab
     data={newData}
     render={(data)=>{
@@ -12,7 +12,12 @@ export default function LecturerTab(props){
                        return (<ul className="lecturer_list">
                            {
                                data.map(item => {
-                                   return (<li key={item.id}>
+                                   return (<li
+                                       key={item.id}
+                                       onClick={()=>{
+                                           console.log(11);
+                                       }}
+                                   >
                                        <img src={item.icon}/>
                                        <p>
                                            {item.title}
