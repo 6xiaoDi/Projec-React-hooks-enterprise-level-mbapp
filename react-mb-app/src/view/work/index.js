@@ -25,7 +25,7 @@
                 <Frame>
                     {
                         loading?<Skeleton />:(
-                            <div>
+                            <div className="workDetails">
                                 <Tab
                                     data={data.image_path.map(
                                         item=>item.path

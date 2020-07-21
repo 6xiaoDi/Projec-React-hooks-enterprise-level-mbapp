@@ -48,6 +48,7 @@ export default function Tab(props){
             </ul>
         </div>
         {
+            // 如果只有一张图片，则不需要显示导航点，better-scroll不用我们考虑，如果仅有一张图片，不会有滑动切换了
             data.length < 1 ?"":(<ul className="banner_nav">
                 {
                     data.map((item,index)=><li

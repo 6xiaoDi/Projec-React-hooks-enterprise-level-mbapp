@@ -21,11 +21,8 @@ let imgData = [
 
 function Index(props) {
     let {dispatch} = props;
-    let [page,setPage] = useState(1);
     function getWorsData(){
-        let p = dispatch(getWorks(page));
-        setPage(++page);
-        return p;
+        return dispatch(getWorks());
     }
     useEffect(()=>{
         getWorsData();
