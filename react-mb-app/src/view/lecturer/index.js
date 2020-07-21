@@ -45,6 +45,9 @@ function Lecturer(props) {
                           data.map(item => {
                             return (<li key={item.id}>
                                 <img src={item.icon}/>
+                                <p>
+                                    {item.title}
+                                </p>
                             </li>)
                           })
                       }
