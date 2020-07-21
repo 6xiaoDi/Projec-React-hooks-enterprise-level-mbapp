@@ -4,7 +4,7 @@
     import {connect} from "react-redux";
     import getWork from "../../store/action/getWork";
     import Skeleton from "../../common/component/skeleton";
-    import Tab from "../../common/component/tab";
+    import Main from "./main";
 
     function Work(props) {
         let {data,loading,dispatch,match} = props;
@@ -25,14 +25,9 @@
                 <Frame>
                     {
                         loading?<Skeleton />:(
-                            <div className="workDetails">
-                                <Tab
-                                    data={data.image_path.map(
-                                        item=>item.path
-                                    )}
-                                    render={src=><img src={src}/>}
-                                />
-                            </div>
+                            <Main
+                                data={data}
+                            />
                         )
                     }
                 </Frame>

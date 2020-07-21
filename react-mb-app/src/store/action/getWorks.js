@@ -9,7 +9,6 @@ export default function getWorks(){
             type: "LOAD"
         })
         let {page} = getState().works;
-        console.log(page);
         return HTTP.post(`/lecturer/lists?page=${page}&rows=8`, {
             order: "desc",
             sort: "sort",

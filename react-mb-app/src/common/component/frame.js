@@ -27,7 +27,6 @@ export default function Frame(props){
             pullUpLoad: pullUp?{threshold:200}:false  // 是否支持上滑加载
         });
         pageScroll.on("pullingUp",()=>{
-            console.log("上滑加载更多");
             getData().then(res => {
                 if(res){
                     pageScroll.finishPullUp(); // 当前次上滑加载执行完毕，可执行下一次了
