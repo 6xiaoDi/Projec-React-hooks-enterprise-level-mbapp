@@ -15,7 +15,7 @@ export default function works(state={
             return {
                 ...state,
                 loading: false,
-                data: state.data
+                data: state.data.concat(action.data)  // 数据合并
             };
         // 数据请求结束
         case "LOADEND":

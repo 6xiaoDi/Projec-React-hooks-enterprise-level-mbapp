@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {connect} from "react-redux"
 import Tab from '../../common/component/tab'
 import "../../common/css/index.css";
@@ -7,6 +7,8 @@ import Vip from "./vip";
 import Coursev from "./coursev";
 import Works from "./works";
 import Frame from "../../common/component/frame";
+import getWorks from "../../store/action/getWorks";
+
 
 
 // 后端传可以调接口接收，或者直接写死。
@@ -18,6 +20,14 @@ let imgData = [
 ];
 
 function Index(props) {
+    let {dispatch} = props;
+    const [page,setPage] = useState(1);
+    function getWorsData(){
+        return dispatch((getWorks(page)))
+    }
+    useEffect(()=>{
+        getWorsData();
+    },[]);
     return (
             <Frame>
                 <div>
@@ -32,7 +42,7 @@ function Index(props) {
                         <Course />
                         <Vip/>
                         <Coursev/>
-                        <Works/>
+                        <Works {...props}/>
                     </section>
                 </div>
             </Frame>
