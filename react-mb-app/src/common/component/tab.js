@@ -22,7 +22,6 @@ export default function Tab(props){
             setNow(bScroll.getCurrentPage().pageX);
         });
         timer = setInterval(()=>{
-            console.log(1);
             bScroll.next(200);
         },2000);
         // 触摸图片，清除定时器
@@ -32,7 +31,6 @@ export default function Tab(props){
         // 手指抬起，开启定时器
         bannerWrap.current.addEventListener("touchend",()=>{
             timer = setInterval(()=>{
-                console.log(2);
                 bScroll.next(200)
             },2000);
         })

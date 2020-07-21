@@ -1,5 +1,7 @@
 import React from 'react';
-export default function Works(props){
+import {connect} from 'react-redux'
+function Works(props){
+    console.log(props);
     return (
         <div className="works">
             <h3>学员作品</h3>
@@ -23,3 +25,5 @@ export default function Works(props){
         </div>
     );
 };
+
+export default connect(state => state.works)(Works);

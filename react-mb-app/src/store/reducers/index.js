@@ -1,4 +1,5 @@
 import getUser from "./login"
+import works from "./works";
 
 function index (state={},action) {
     return state;
@@ -6,5 +7,6 @@ function index (state={},action) {
 
 export default {
     index,
-    getUser
+    getUser,
+    works
 }
