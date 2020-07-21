@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
-function Works(props){
+
+export default function Works(props){
     console.log(props);
     return (
         <div className="works">
@@ -25,5 +26,3 @@ function Works(props){
         </div>
     );
 };
-
-export default connect(state => state.works)(Works);

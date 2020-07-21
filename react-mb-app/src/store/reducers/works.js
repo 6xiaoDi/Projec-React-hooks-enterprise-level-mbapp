@@ -23,6 +23,6 @@ export default function works(state={
                 ...state,
                 loadEnd: true
             }         
-    };
+    }
     return state
 }

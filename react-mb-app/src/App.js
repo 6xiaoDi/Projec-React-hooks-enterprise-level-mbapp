@@ -8,9 +8,9 @@ import "./common/css/common.css";
 function App() {
   return (
       <BrowserRouter>
-          <Frame>
+          {/*<Frame>*/}
               <IndexRouter/>
-          </Frame>
+          {/*</Frame>*/}
       </BrowserRouter>
   );
 }
