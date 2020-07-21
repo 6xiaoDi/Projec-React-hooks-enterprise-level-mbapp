@@ -21,15 +21,19 @@ let imgData = [
 
 function Index(props) {
     let {dispatch} = props;
-    const [page,setPage] = useState(1);
+    let [page,setPage] = useState(1);
     function getWorsData(){
-        return dispatch((getWorks(page)))
+        dispatch(getWorks(page));
+        setPage(++page);
     }
     useEffect(()=>{
         getWorsData();
     },[]);
     return (
-            <Frame>
+            <Frame
+                pullUp = {true}
+                getData = {getWorsData}
+            >
                 <div>
                     {/*结构不统一，我们处理不同的数据=>return可以写不同的结构，可以是li，也可以是这里的图片*/}
                     <Tab

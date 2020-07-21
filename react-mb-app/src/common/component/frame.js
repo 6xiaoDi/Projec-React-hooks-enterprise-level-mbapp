@@ -9,6 +9,7 @@ export default function Frame(props){
     const innerH = useInnerHeight();
     const wrap = useRef(null);
     let pageScroll = null;
+    let {pullUp,getData} = props;
     function changeShow() {
         setShowMenu(!showMenu);
     }
@@ -22,8 +23,13 @@ export default function Frame(props){
         pageScroll = new BScroll(wrap.current,{
             preventDefaultException:{
                 tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|A)$/ // 注意大写
-            }
+            },
+            pullUpLoad: pullUp?{threshold:200}:false  // 是否支持上滑加载
         });
+        pageScroll.on("pullingUp",()=>{
+            console.log("上滑加载更多");
+            getData();
+        })
     },[]);
     return ( 
         <div>
