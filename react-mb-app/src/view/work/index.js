@@ -4,6 +4,7 @@
     import {connect} from "react-redux";
     import getWork from "../../store/action/getWork";
     import Skeleton from "../../common/component/skeleton";
+    import Tab from "../../common/component/tab";
 
     function Work(props) {
         let {data,loading,dispatch,match} = props;
@@ -18,12 +19,22 @@
                 });
             }
         },[]);
-        // console.log(props);
         return (
             // 不能直接写在框架里，有些东西在框架外，如footer
             <div>
                 <Frame>
-                    <Skeleton/>
+                    {
+                        loading?<Skeleton />:(
+                            <div>
+                                <Tab
+                                    data={data.image_path.map(
+                                        item=>item.path
+                                    )}
+                                    render={src=><img src={src}/>}
+                                />
+                            </div>
+                        )
+                    }
                 </Frame>
                 <footer className="miiapv_footer">
                     回复本帖
