@@ -12,10 +12,26 @@ export default function LecturerTab(props){
                        return (<ul className="lecturer_list">
                            {
                                data.map(item => {
+                                   let point = {};
                                    return (<li
                                        key={item.id}
-                                       onClick={()=>{
-                                           console.log(11);
+                                       onTouchStart={(e)=>{
+                                           let touch = e.changedTouches[0];
+                                           point.x = touch.pageX;
+                                           point.y = touch.pageY;
+                                       }}
+                                       onTouchEnd={(e)=>{
+                                           let touch = e.changedTouches[0];
+                                           let nowPoint = {
+                                               x: touch.pageX,
+                                               y: touch.pageY
+                                           };
+                                           // 计算手指抬起和按下的坐标差，超过5个孝素就不是想点击，而是别的操作了
+                                           //console.log(point,nowPoint);
+                                           if(Math.abs(nowPoint.x - point.x)<5
+                                               &&Math.abs(nowPoint.y - point.y)<5){
+                                               showAlert(item);
+                                           }
                                        }}
                                    >
                                        <img src={item.icon}/>

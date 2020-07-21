@@ -44,26 +44,29 @@ function Lecturer(props) {
     },[]);
 
     return (
-        <Frame>
-            <div className="teacher_banner">
-                <h2>
-                    <span>
-                    妙味团队
-                    </span>
-                </h2>
-                <LecturerTab
-                    data={data}
-                    newData = {newData}
-                    showAlert = {showAlert}
-                />
-            </div>
-            <Join />
-            <Footer />
+        <div>
+            <Frame>
+                <div className="teacher_banner">
+                    <h2>
+                        <span>
+                        妙味团队
+                        </span>
+                    </h2>
+                    <LecturerTab
+                        data={data}
+                        newData = {newData}
+                        showAlert = {showAlert}
+                    />
+                </div>
+                <Join />
+                <Footer />
+            </Frame>
             {show?<LecturerAlert
                     data = {alertDate}
                     hideAlert = {hideAlert}/>
-            :""}
-        </Frame>
+                :""}
+        </div>
+
     );
 }
 
