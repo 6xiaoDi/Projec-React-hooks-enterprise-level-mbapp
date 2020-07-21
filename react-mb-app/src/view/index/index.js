@@ -23,8 +23,9 @@ function Index(props) {
     let {dispatch} = props;
     let [page,setPage] = useState(1);
     function getWorsData(){
-        dispatch(getWorks(page));
+        let p = dispatch(getWorks(page));
         setPage(++page);
+        return p;
     }
     useEffect(()=>{
         getWorsData();

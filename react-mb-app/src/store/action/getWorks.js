@@ -14,11 +14,12 @@ export default function getWorks(page){
         category_id: 1,
         recommend: 1       
     }).then(res=>{
-           console.log(res);
            dispatch({
                type: "LOADOVER",
                data: res.data
            });
+
+           return true;
         })
     }
 }
