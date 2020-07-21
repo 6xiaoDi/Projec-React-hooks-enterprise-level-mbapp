@@ -21,7 +21,8 @@ export default function Frame(props){
     useEffect (()=> {
         pageScroll = new BScroll(wrap.current,{
             preventDefaultException:{
-                tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|A)$/ // 注意大写
+                tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|A)$/, // 注意大写
+                className: /(^|\s)work_a(\s|$)/
             },
             pullUpLoad: pullUp?{threshold:200}:false  // 是否支持上滑加载
         });

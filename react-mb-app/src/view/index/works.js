@@ -1,5 +1,4 @@
 import React from 'react';
-import {connect} from 'react-redux'
 import {Link} from "react-router-dom";
 
 export default function Works(props){
@@ -11,7 +10,7 @@ export default function Works(props){
                 {
                     data.map(item => (
                         <li key={item.id}>
-                            <a href='#'>
+                            <Link to={"/work/"+item.id}>
                                 <img src={item.icon} className="work_a"/>
                                 <span className="wrork_txt clearfix work_a">
                                     <strong className="work_a">{item.title}</strong>
@@ -20,7 +19,7 @@ export default function Works(props){
                                         <em className="work_a">{item.good}</em>
                                     </span>
                                 </span>
-                            </a>
+                            </Link>
                         </li>
                     ))
                 }
