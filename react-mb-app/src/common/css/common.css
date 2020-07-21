@@ -172,3 +172,29 @@
 #menu a:first-child {
   border-top: 1px solid rgba(255, 255, 255, .3);
 }
+.skeleton .skeleton-row {
+  display: flex;
+}
+/*开动画*/
+@keyframes skeleton{
+  0%{
+    background: #999;
+  }
+  100% {
+    background: #ccc;
+  }
+}
+.skeleton .skeleton-row span {
+  flex: 1;
+  margin: 5px 10px;
+  height: 10px;
+  background: #999;
+}
+/*偶数行动画*/
+.skeleton .skeleton-row:nth-child(2n) span {
+  animation: skeleton 2s infinite alternate;
+}
+/*奇数行动画*/
+.skeleton .skeleton-row:nth-child(2n+1) span {
+  animation: skeleton 1.5s .2s infinite alternate;
+}

@@ -3,6 +3,7 @@
     import "../../common/css/coursev.css"
     import {connect} from "react-redux";
     import getWork from "../../store/action/getWork";
+    import Skeleton from "../../common/component/skeleton";
 
     function Work(props) {
         let {data,loading,dispatch,match} = props;
@@ -21,7 +22,9 @@
         return (
             // 不能直接写在框架里，有些东西在框架外，如footer
             <div>
-                <Frame/>
+                <Frame>
+                    <Skeleton/>
+                </Frame>
                 <footer className="miiapv_footer">
                     回复本帖
                 </footer>
