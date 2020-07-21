@@ -28,8 +28,12 @@ export default function Frame(props){
         pageScroll.on("pullingUp",()=>{
             console.log("上滑加载更多");
             getData().then(res => {
-                pageScroll.finishPullUp(); // 当前次上滑加载执行完毕，可执行下一次了
-                pageScroll.refresh(); // 立马刷新
+                if(res){
+                    pageScroll.finishPullUp(); // 当前次上滑加载执行完毕，可执行下一次了
+                    pageScroll.refresh(); // 立马刷新
+                } else {
+                    pageScroll.closePullUp();  // 关闭上滑加载
+                }
             } )
         })
     },[]);

@@ -257,6 +257,7 @@
   width: 4.73333333rem;
   float: left;
   position: relative;
+  overflow:hidden;
 }
 .works_list li a {
   display: block;
