@@ -4,6 +4,7 @@ import "../../common/css/teacher.css";
 import {connect} from "react-redux"
 import Tab from "../../common/component/tab";
 import getLectirers from "../../store/action/getLectirers";
+import LecturerTab from "./tab";
 
 
 function Lecturer(props) {
@@ -36,26 +37,10 @@ function Lecturer(props) {
                 妙味团队
               </span>
             </h2>
-          {data.length<1?"" :
-          <Tab
-              data={newData}
-              render={(data)=>{
-                  return (<ul className="lecturer_list">
-                      {
-                          data.map(item => {
-                            return (<li key={item.id}>
-                                <img src={item.icon}/>
-                                <p>
-                                    {item.title}
-                                </p>
-                            </li>)
-                          })
-                      }
-                  </ul>)
-              }}
-          >
-
-          </Tab>}
+            <LecturerTab
+                data={data}
+                newData = {newData}
+            />
         </div>
       </Frame>
   );
