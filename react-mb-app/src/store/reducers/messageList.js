@@ -19,6 +19,13 @@ export default function messageList(state={
                 page: ++state.page,
                 messageList: state.messageList.concat(action.messageList)
             };
+        // 添加评论
+        case "MESSAGE_ADD":
+            return {
+                ...state,
+                // 新数据放在前头
+                messageList: [action.messageList,...state.messageList]
+            };
         // 更新结束
         case "MESSAGE_LOADEND":
             return {
@@ -31,7 +38,7 @@ export default function messageList(state={
                 loading: false,
                 loadEnd: false,
                 page: 1 
-            }             
+            }
     };
     return state
 }

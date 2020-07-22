@@ -229,3 +229,35 @@
   margin-top: 0.44rem;
   margin-right: 0.18666667rem;
 }
+.message_wrap {
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 10px;
+  width: 100vw;
+  background: #fff;
+  z-index: 12;
+  /*初始隐藏，点击回复再动画出来*/
+  transform: translateY(100%);
+  transition: .5s;
+}
+.message_wrap textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #aaa;
+  outline: none;
+  height: 3rem;
+  font: .25rem/.5rem "宋体";
+  resize: none;
+  overflow: hidden;
+}
+/*静态定位*/
+.message_wrap .miiapv_footer {
+  position: static;
+}
+/*评论提交中样式*/
+.message_wrap .miiapv_footer.put{
+  background: #999;
+}
