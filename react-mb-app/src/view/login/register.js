@@ -79,14 +79,28 @@ function RegisterBox(props){
                         }}
                         className="verifyCode"
                     />
-                    {vcodeShow?
+                    {vcodeShow
+                        ?
                         <img 
                             className="verify" 
                             src={vcodeSrc}
-                            onClick={()=>{
-                                setVcodeSrc("/miaov/user/verify?"+Date.now());
+                            onTouchStart={(e)=>{
+                                let touch = e.changedTouches[0];
+                                point.x = touch.pageX;
+                                point.y = touch.pageY;
                             }}
-                        />:""}
+                            onTouchEnd={(e)=>{
+                                let touch = e.changedTouches[0];
+                                let nowPoint = {
+                                    x: touch.pageX,
+                                    y: touch.pageY
+                                };
+                                if(Math.abs(nowPoint.x - point.x)<5
+                                    &&Math.abs(nowPoint.y - point.y)<5){
+                                    setVcodeSrc("/miaov/user/verify?"+Date.now())
+                                }}}/>
+                        :
+                        ""}
                 </p>
                 <button 
                     className="form_btn"

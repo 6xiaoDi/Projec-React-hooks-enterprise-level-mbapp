@@ -30,6 +30,7 @@ function LoginBox(props){
             },100);
         })
     }
+    let point = {};
     return (
         <div className="login_box">
             <figure className="user_img">
@@ -70,13 +71,28 @@ function LoginBox(props){
                         }}
                         className="verifyCode"
                     />
-                    {vcodeShow ? <img
+                    {vcodeShow ?
+                        <img
                         className="verify"
                         src={vcodeSrc}
-                        onClick={()=>{
-                            setVcodeSrc("/miaov/user/verify?"+Date.now());
+                        onTouchStart={(e)=>{
+                            let touch = e.changedTouches[0];
+                            point.x = touch.pageX;
+                            point.y = touch.pageY;
                         }}
-                    /> : ""}
+                        onTouchEnd={(e)=>{
+                            let touch = e.changedTouches[0];
+                            let nowPoint = {
+                                x: touch.pageX,
+                                y: touch.pageY
+                            };
+                            if(Math.abs(nowPoint.x - point.x)<5
+                                &&Math.abs(nowPoint.y - point.y)<5){
+                                setVcodeSrc("/miaov/user/verify?"+Date.now())
+                        }}}
+                    />
+                    :
+                    ""}
                 </p>
                 <button
                     className="form_btn"
