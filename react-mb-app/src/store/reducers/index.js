@@ -3,6 +3,7 @@ import works from "./works";
 import lecturers from "./lecturers";
 import work from "./work";
 import good from "./good";
+import messageList from "./messageList";
 
 function index (state={},action) {
     return state;
@@ -14,5 +15,6 @@ export default {
     works,
     lecturers,
     work,
-    good
+    good,
+    messageList
 }
