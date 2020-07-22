@@ -9,7 +9,6 @@
     function Work(props) {
         let {data,loading,dispatch,match} = props;
         let {id} = match.params;
-        console.log(data, loading);
         useEffect(()=>{
             dispatch(getWork(id));
             return ()=>{
