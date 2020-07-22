@@ -19,6 +19,7 @@ export default function Main(props){
                 <article className="miiaov_comment">
                     <Good
                         goodNub={data.good}
+                        id={data.id}
                     />
                 </article>
             </div>
