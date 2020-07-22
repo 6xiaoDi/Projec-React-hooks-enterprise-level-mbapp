@@ -1,6 +1,8 @@
 import React from 'react';
 import Tab from '../../common/component/tab';
 import Article from "./article";
+import Good from "./good";
+
 
 export default function Main(props){
     let {data} = props;
@@ -11,9 +13,12 @@ export default function Main(props){
                 render={src=><img src={src} />}
             />
             <div className="miiaov_box">
+                <Article
+                    data = {data}
+                />
                 <article className="miiaov_comment">
-                    <Article
-                        data={data}
+                    <Good
+                        goodNub={data.good}
                     />
                 </article>
             </div>
