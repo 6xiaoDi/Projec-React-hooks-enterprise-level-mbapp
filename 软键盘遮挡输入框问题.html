@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<input type="text" />
+<script>
+{
+    let input = document.querySelector("input");
+    let oldY = 0;
+    // 监听焦点事件：输入框获得焦点的时候，一般会弹出软键盘
+    input.onfocus = ()=>{
+        let startTop = input.getBoundingClientRect().top; // 软键盘弹出之前的top
+        // 软键盘弹出本身就是一个动画，会有时间差
+        setTimeout(()=>{
+            let nowTop = input.getBoundingClientRect().top; // 如果两个top相等，有可能会被软键盘覆盖
+
+            // 假如浏览器帮助我们处理，就别管，大致估算一个大于10像素的距离
+            if(startTop - nowTop > 10){
+                return;
+            }
+
+            // 软键盘高度不好获取的，我们估计一个高度
+            // nowTop大于屏幕一半就有可能有遮盖问题=>让其往上移动
+            if(nowTop > window.innerHeight/2){
+                // 顶部移动到屏幕一半的距离-自身高度，再往上移动一点
+                oldY = (nowTop -  window.innerHeight/2) - input.offsetHeight - 10;//移动距离
+                // 往上移动
+                input.style.transform = "translateY(-"+oldY+"px)";
+            }
+        },400);
+    };
+
+
+    input.onblur = ()=>{
+        // 失去焦点后，再通过软键盘判断有没有被遮挡，被遮挡了就移动回去
+        if(oldY){
+            input.style.transform = "translateY("+0+"px)";
+        }
+    };
+}
+</script>    
+</body>
+</html>
