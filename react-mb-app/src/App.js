@@ -1,18 +1,43 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {BrowserRouter} from "react-router-dom"
-import IndexRouter from "./router";
-import Frame from "./common/component/frame";
 import "./common/css/reset.css";
 import "./common/css/common.css";
+import IndexRoute from './router';
+import Header from './common/component/header';
+import Menu from './common/component/menu';
 
 function App() {
-  return (
-      <BrowserRouter>
-          {/*<Frame>*/}
-              <IndexRouter/>
-          {/*</Frame>*/}
-      </BrowserRouter>
-  );
+    const [showMenu,setShowMenu] = useState(false); // 菜单的展开与收缩
+
+    function changeShow() {
+        setShowMenu(!showMenu);
+    }
+
+    function menuHide() {
+        setShowMenu(false);
+    }
+
+    return (
+        <BrowserRouter>
+            <div>
+                <Header
+                    changeShow = {changeShow}
+                />
+                <Menu
+                    menuHide={menuHide}
+                />
+                <div
+                    className="pageWrap"
+                    style={{
+                        transform: `translateX(${showMenu?4.5:0}rem)`
+                    }}
+                    onTouchStart={menuHide}
+                >
+                    <IndexRoute />
+                </div>
+            </div>
+        </BrowserRouter>
+    );
 }
 
 export default App;

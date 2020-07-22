@@ -75,8 +75,6 @@
   z-index: 1;
   padding-top: 1.2rem;
   /*min-height: 12.82666667rem;不需最小高度，而是铺满一屏幕*/
-  background: #f2f9fc;
-  transition: .5s transform;
 }
 #footer {
   background: #323436;
@@ -84,6 +82,9 @@
 }
 .pageWrap {
   position: relative;
+  z-index: 1;
+  background: #f2f9fc;
+  transition: .5s transform;
   height: 100%;
   overflow: hidden;
 }
@@ -163,6 +164,7 @@
 }
 #menu a.active {
   color: #fff;
+  background: none;
 }
 #menu a:before {
   font-size: .4rem;

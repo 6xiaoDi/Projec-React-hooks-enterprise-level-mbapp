@@ -1,22 +1,12 @@
 import React,{useState,useEffect,useRef} from 'react';
-import Header from "./header";
-import Menu from "./menu";
 import {useInnerHeight} from "../hook/index";
 import BScroll from "better-scroll";
 
 export default function Frame(props){
-    const [showMenu,setShowMenu] = useState(false); // 菜单的展开与收缩
     const innerH = useInnerHeight();
     const wrap = useRef(null);
     let pageScroll = null;
     let {pullUp,getData} = props;
-    function changeShow() {
-        setShowMenu(!showMenu);
-    }
-
-    function menuHide() {
-        setShowMenu(false);
-    }
 
     useEffect (()=> {
         window.pageScroll = new BScroll(wrap.current,{
@@ -40,31 +30,19 @@ export default function Frame(props){
             window.pageScroll = null;
         }
     },[]);
-    return ( 
-        <div>
-            <Header
-                changeShow = {changeShow}
-            />
-            <Menu
-                menuHide = {menuHide}
-            />
+    return (
+        <div
+            id="main"
+            style={{
+                height: innerH
+            }}
+        >
             <div
-                id="main"
-                style={{
-                    transform:`translateX(${showMenu?4.5:0}rem)`,
-                    height:innerH
-                }}
-                onTouchStart={()=>{
-                    menuHide();
-                }}
+                className="pageWrap"
+                ref = {wrap}
             >
-                <div
-                    className="pageWrap"
-                    ref = {wrap}
-                >
-                    <div>
-                        {props.children}
-                    </div>
+                <div>
+                    {props.children}
                 </div>
             </div>
         </div>
