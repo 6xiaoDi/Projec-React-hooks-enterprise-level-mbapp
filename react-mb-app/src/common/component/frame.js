@@ -19,23 +19,26 @@ export default function Frame(props){
     }
 
     useEffect (()=> {
-        pageScroll = new BScroll(wrap.current,{
+        window.pageScroll = new BScroll(wrap.current,{
             preventDefaultException:{
                 tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT|A)$/, // 注意大写
                 className: /(^|\s)work_a(\s|$)/
             },
             pullUpLoad: pullUp?{threshold:200}:false  // 是否支持上滑加载
         });
-        pageScroll.on("pullingUp",()=>{
+        window.pageScroll.on("pullingUp",()=>{
             getData().then(res => {
                 if(res){
-                    pageScroll.finishPullUp(); // 当前次上滑加载执行完毕，可执行下一次了
-                    pageScroll.refresh(); // 立马刷新
+                    window.pageScroll.finishPullUp(); // 当前次上滑加载执行完毕，可执行下一次了
+                    window.pageScroll.refresh(); // 立马刷新
                 } else {
-                    pageScroll.closePullUp();  // 关闭上滑加载
+                    window.pageScroll.closePullUp();  // 关闭上滑加载
                 }
             } )
         })
+        return ()=>{
+            window.pageScroll = null;
+        }
     },[]);
     return ( 
         <div>
